@@ -1,6 +1,3 @@
--- this is the file for our assignment
-
-
 -- goal 1: get the option the user inputs (add, print, search)
 optionSelect option
   | option == "add" = "then add"
