@@ -10,6 +10,9 @@ printTaskList [] = do
 printTaskList (x:xs) = do
   putStrLn $ " Task: " ++ x
   printTaskList xs
+
+searchTaskList task list = do
+  -- build this part out 
  
 buildTaskList list = do
   --addTask "gersey" list           addTask works (hard coded)
@@ -25,8 +28,8 @@ buildTaskList list = do
     addTask task list
   else if option == "print" then do
     printTaskList list
-  -- else if option == "search" then do
-  --   searchTaskList task list
+  else if option == "search" then do
+    searchTaskList task list
   else putStrLn "error"
 
   buildTaskList updatedList
