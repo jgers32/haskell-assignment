@@ -1,16 +1,33 @@
--- goal 1: get the option the user inputs (add, print, search)
-optionSelect option
-  putStrLn $ "Julia " ++ option
+getOption :: String -> Int
+getOption option 
+  | option == "add" = 1
+  | option == "print" = 2
+  | option == "search" = 3
+  | otherwise = 4
 
+printTaskList [] = do
+  putStrLn "End"
+
+printTaskList (x:xs) = do
+  putStrLn $ " Task: " ++ x
+  printTaskList xs
+ 
 buildTaskList list = do
-  putStrLn "Enter option:"
+  putStrLn "Enter option: "
   input <- getLine
   let option = read input :: String
 
-  let x = optionSelect input
-  
+  let x = getOption option
+  print x
 
+  let updatedList = list ++ [x]
+
+  printTaskList updatedList
+  buildTaskList updatedList
+
+main :: IO ()
 main = do
+  putStrLn "Below are the options: \n\tadd\n\tprint\n\tsearch"
   buildTaskList []
 
 
